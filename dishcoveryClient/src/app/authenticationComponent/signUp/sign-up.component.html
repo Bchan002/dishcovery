@@ -1,0 +1,94 @@
+
+<h1>Welcome to the sign up page</h1>
+
+<form [formGroup]="signUpForm" (submit)="processSignUpForm()">
+    <table>
+        <tr>
+            <td>Username:</td>
+            <td>
+                <input type="text" formControlName="username">
+            </td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>
+                <input class="form-control" type="email" formControlName="email">
+            </td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td>
+                <input class="form-control" type="password" formControlName="password">
+            </td>
+        </tr>
+        <tr>
+            <td>Confirm Password:</td>
+            <td>
+                <input class="form-control" type="password" formControlName="confirmPassword">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit" [disabled]="disableButton()">Sign Up</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+
+<button type="button" [routerLink]="['/']">Back</button>
+
+<ul>
+    @if(signUpForm.errors?.['passwordMismatch'] && signUpForm.get('confirmPassword')?.touched && signUpForm.get('confirmPassword')?.value){
+    <li>
+        Password mismatch, please try again
+    </li>
+    }
+
+    <!--Error Message-->
+    <!--Error Message shows only when touched-->
+    @if(isCtrlInvalid('username') && signUpForm.get('username')?.touched){
+    <li>
+        <div class="">
+            Please enter a valid username (min 5 letters)
+        </div>
+    </li>
+
+    }
+    <!--Error Message-->
+    <!--Error Message shows only when touched-->
+    @if(isCtrlInvalid('email') && signUpForm.get('email')?.touched){
+    <li>
+        <div class="">
+            Please enter a valid email
+        </div>
+    </li>
+
+    }
+    <!--Error Message-->
+    <!--Error Message shows only when touched-->
+    @if(isCtrlInvalid('password') && signUpForm.get('password')?.touched){
+    <li>
+        <div class="">
+            Please enter a valid password (min 5 letters)
+        </div>
+    </li>
+    }
+
+    <!--Error Message when duplicate email-->
+    @if(checkErrorMessage()){
+        <li>
+            {{errorMessage}}
+        </li>
+    }
+
+     <!--Error Message when duplicate email-->
+     @if(isDirty() && isInvalid()){
+        <li>
+            dirty sia form
+        </li>
+    }
+
+
+</ul>

@@ -1,0 +1,67 @@
+<h1>Dishcovery - Your Personal Smart Shopping List and Meal Assistant</h1>
+
+<form [formGroup]="mainForm" (submit)="processForm()">
+    <table>
+        <tr>
+            <td>Username: </td>
+            <td>
+                <input class="form-control" type="text" formControlName="username"
+                    [ngClass]="{'is-invalid': isCtrlInvalid('username') && mainForm.get('username')?.touched}">
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>Password: </td>
+            <td>
+                <input class="form-control" type="password" formControlName="password"
+                    [ngClass]="{'is-invalid': isCtrlInvalid('password') && mainForm.get('password')?.touched}">
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Login</button>
+            </td>
+        </tr>
+    </table>
+
+    <ul>
+        <li> Invalid: {{ mainForm.invalid }} </li>
+
+        <!--Error Message-->
+        @if(isCtrlInvalid('username') && mainForm.get('username')?.touched){
+        <li>
+            <div class="">
+                Please enter a valid username (min 5 letters)
+            </div>
+        </li>
+
+        }
+      
+        @if(isCtrlInvalid('password') && mainForm.get('password')?.touched){
+            <li>
+                <div class="">
+                    Please enter a valid password (min 5 letters)
+                </div>
+            </li>
+    
+        }
+
+        @if(checkErrorMessage()){
+            <li>
+                {{errorMessage}}
+            </li>
+        }
+
+
+    </ul>
+
+    <button type="button" [routerLink]="['/signUp']">No Account? Sign Up Here!</button>
+
+    <br>
+
+    <br>
+
+    <button type="button" [routerLink]="['/forgetPassword']">Forgot Password? Click here</button>
+</form>
