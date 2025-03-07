@@ -1,0 +1,21 @@
+<div class="sidenav-header">
+
+    <img [width]="profilePicSize()" [height]="profilePicSize()" src="/IMG_0937.PNG">
+    <div class="header-text" [class.hide-header-text]="sideNavCollapsed()">
+        <h2>Your profile</h2>
+        <p>Your name</p>
+    </div>
+</div>
+<mat-nav-list>
+    @for(item of menuItems(); track item){
+        <a mat-list-item class="menuItem"
+            [routerLink]="[item.route]"
+            routerLinkActive = "selected-menu-item"
+            #rla = "routerLinkActive"
+            [activated]="rla.isActive">
+            
+            <mat-icon [fontSet]="rla.isActive ? 'material-icons' : 'material-icons-outlined'" matListItemIcon>{{item.icon}}</mat-icon>
+            <span matListItemTitle>{{item.label}}</span>
+        </a>
+    }
+</mat-nav-list>

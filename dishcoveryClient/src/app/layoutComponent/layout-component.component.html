@@ -1,0 +1,32 @@
+<!-- Material Toolbar -->
+<mat-toolbar color="primary" class="mat-elevation-z10">
+    <button mat-icon-button (click)="collapsed.set(!collapsed())">
+        <mat-icon>menu</mat-icon>
+    </button>
+
+    <span>Dishcovery</span>
+    
+    <!-- This spacer pushes the logout button to the right -->
+    <span class="toolbar-spacer"></span>
+    
+    <!-- Logout button with icon -->
+    <button mat-icon-button (click)="logout()" class="logout-button" matTooltip="Logout">
+        <mat-icon>exit_to_app</mat-icon>
+    </button>
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav opened mode="side" [style.width]="sidenavWidth()">
+        <app-custom-sidenav [collapsed]="collapsed()"></app-custom-sidenav>
+    </mat-sidenav>
+    
+    <!--Here will be the main content area (Routes)-->
+    <mat-sidenav-content class="content" [style.margin-left]="sidenavWidth()">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- Footer -->
+<footer>
+    <p>© 2025 Dishcovery - Your Personal Smart Shopping List and Meal Assistant</p>
+</footer>
