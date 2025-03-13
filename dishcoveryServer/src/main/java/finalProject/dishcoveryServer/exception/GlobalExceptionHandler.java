@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import finalProject.dishcoveryServer.models.exception.EmailNotFoundException;
+import finalProject.dishcoveryServer.models.exception.RecipeNotFoundException;
 import finalProject.dishcoveryServer.models.exception.SignUpUnsuccessfulExcpetion;
 import jakarta.json.Json;
 import jakarta.json.JsonObject;
@@ -86,6 +87,23 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(EmailNotFoundException.class)
     public ResponseEntity<String> handleResourceNotFound(EmailNotFoundException ex, 
+    HttpServletRequest request, HttpServletResponse response){
+
+        //ApiError apiError = new ApiError(404, ex.getMessage(), new Date(), request.getRequestURI());
+
+        JsonObject apiErrorJson = Json.createObjectBuilder() 
+            .add("status", 404)
+            .add("message", ex.getMessage())
+            .add("timeStamp", new Date().toString())
+            .add("path", request.getRequestURI())
+            .build();
+
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(apiErrorJson.toString());
+    }
+
+    @ExceptionHandler(RecipeNotFoundException.class)
+    public ResponseEntity<String> handleResourceNotFound(RecipeNotFoundException ex, 
     HttpServletRequest request, HttpServletResponse response){
 
         //ApiError apiError = new ApiError(404, ex.getMessage(), new Date(), request.getRequestURI());

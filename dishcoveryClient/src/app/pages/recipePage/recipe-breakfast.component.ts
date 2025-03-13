@@ -1,0 +1,30 @@
+import { Component, inject, OnInit } from '@angular/core';
+import { RecipeStore } from '../../componentStore/RecipeStore';
+import { Observable } from 'rxjs';
+import { Recipe } from '../../models';
+
+@Component({
+  selector: 'app-recipe-breakfast',
+  standalone: false,
+  templateUrl: './recipe-breakfast.component.html',
+  styleUrl: './recipe-breakfast.component.css'
+})
+export class RecipeBreakfastComponent implements OnInit{
+
+      //Set this as the breakfast section 
+      private state:string = "breakfast"
+
+      //Inject store 
+      private recipeStore = inject(RecipeStore)
+
+      //Variable 
+      protected breakfastRecipe$!: Observable<Recipe[]>
+
+      ngOnInit():void{
+         
+       //this.recipeStore.filterRecipes(this.state)
+
+       this.breakfastRecipe$ = this.recipeStore.getFilterRecipe(this.state)
+         
+      }
+}

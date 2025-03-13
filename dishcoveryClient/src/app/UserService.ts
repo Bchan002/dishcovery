@@ -69,7 +69,7 @@ export class UserService {
             }
         }   
         
-        // return an observabel with a user facing error message 
+        // return an observabele with a user facing error message 
         return throwError( () => errorMessage) 
 
     }

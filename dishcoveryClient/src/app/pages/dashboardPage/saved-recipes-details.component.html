@@ -1,0 +1,40 @@
+
+
+
+<h1 class="recipe-title">Recipe Details</h1>
+
+
+@if(recipe$|async; as recipe) {
+
+  <mat-card class="recipe-card">
+    <img mat-card-image [src]="recipe.image" alt="{{ recipe.title }}" class="recipe-image">
+
+    <mat-card-content class="recipe-content">
+      <h2>{{ recipe.title }}</h2>
+      <p><strong>Ready in:</strong> {{ recipe.readyInMinutes }} minutes</p>
+      <p><strong>Servings:</strong> {{ recipe.servings }}</p>
+
+      <div class="ingredients">
+        <h3>Ingredients</h3>
+       
+        @for (ingredient of recipe.ingredients; let index=$index; track index) {
+          <mat-list>
+            <mat-list-item>
+              <span class="ingredient-amount">{{ ingredient.amount }} {{ ingredient.unit }}</span> 
+              <span class="ingredient-name">{{ ingredient.name }}</span>
+            </mat-list-item>
+          </mat-list>
+        }
+      </div>
+
+      <div class="instructions">
+        <h3>Instructions</h3>
+        <p [innerHTML]="recipe.instructions"></p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+}
+
+
+
+

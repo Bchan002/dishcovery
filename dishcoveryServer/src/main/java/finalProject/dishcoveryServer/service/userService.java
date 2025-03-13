@@ -1,6 +1,7 @@
 package finalProject.dishcoveryServer.service;
 
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -25,16 +26,21 @@ public class userService {
 
         try {
 
-            //Encrypt the password details 
+           
             User user = new User();
             user.setEmail(signUpDetails.getEmail());
             user.setUsername(signUpDetails.getUsername());
 
+            //Encrypt the password details
             String encodedPassword = passwordEncoder.encode(signUpDetails.getPassword());
             user.setPassword(encodedPassword);
 
             user.setRoles("ROLE_USER");
              // Insert the details into mySQL DataBase 
+
+            //Create UUID 
+            String userId = UUID.randomUUID().toString().substring(0,8);
+            user.setUserId(userId);
 
             this.userRepo.save(user);
             

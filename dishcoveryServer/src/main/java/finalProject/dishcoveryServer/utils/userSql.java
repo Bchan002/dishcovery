@@ -3,7 +3,7 @@ package finalProject.dishcoveryServer.utils;
 public class userSql {
 
         public static final String INSERT_SIGN_UP_DETAILS = """
-                        INSERT into userDetails (email,username,password) values (?,?,?)
+                        INSERT into userDetails (userId,email,username,password) values (?,?,?,?)
                         """;
 
         public static final String GET_USER_DETAILS = """
@@ -25,4 +25,8 @@ public class userSql {
                         WHERE email = ?
 
                         """;
+
+        public static final String GET_USER_ID = """
+                                SELECT userId from userDetails WHERE username = ?
+                                 """;
 }

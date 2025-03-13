@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins="*")
 public class testinController {
 
-    @GetMapping("/test")
+    @GetMapping("/testing")
     @CrossOrigin(origins="*")
     public ResponseEntity<String> getResponse(){
         

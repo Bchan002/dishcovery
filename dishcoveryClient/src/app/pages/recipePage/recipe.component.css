@@ -1,0 +1,155 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background-color: #f5f7fa;
+}
+
+/* Content wrapper */
+.content-wrapper {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 40px 50px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px; /* Increased from 400px */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.search-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.search-title {
+  font-size: 32px; /* Increased from 24px */
+  color: #333;
+  margin-bottom: 30px;
+  font-weight: 700;
+  text-align: center;
+  position: relative;
+}
+
+.search-title:after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: #6200ea;
+  border-radius: 3px;
+}
+
+.search-form {
+  width: 100%;
+}
+
+.input-field {
+  width: 100%;
+  margin-bottom: 30px; /* Increased from 20px */
+}
+
+.search-button {
+  font-size: 18px; /* Increased from 16px */
+  padding: 14px 32px; /* Increased padding */
+  border-radius: 50px;
+  background-color: #00a8ea;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  width: 100%; /* Make button full width */
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(98, 0, 234, 0.3);
+}
+
+ 
+
+.search-button:active {
+  transform: scale(0.98);
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+/* Customize Material input */
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #f8f9fc;
+  border-radius: 8px !important;
+  padding: 0.75em 0.75em 0 0.75em !important;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-underline::before {
+  background-color: transparent !important;
+}
+
+::ng-deep .mat-form-field-appearance-fill.mat-focused .mat-form-field-flex {
+  background-color: #f0f2f9;
+}
+
+/* Fix for Material sidenav layout */
+.mat-drawer-container {
+  height: 100%;
+}
+
+.mat-drawer-content {
+  height: 100%;
+  margin-left: 0 !important;
+  transition: margin-left 0.3s ease;
+}
+
+.sidenav-open .mat-drawer-content {
+  margin-left: 250px !important;
+}
+
+/* Optional: Add a decoration */
+.search-decoration {
+  position: absolute;
+  top: -60px;
+  left: -60px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c4dff 0%, #6200ea 100%);
+  opacity: 0.05;
+  z-index: -1;
+}
+
+.search-decoration:after {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff4081 0%, #f50057 100%);
+  opacity: 0.1;
+}

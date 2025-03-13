@@ -28,6 +28,7 @@ public class signUpRestController {
     @CrossOrigin(origins = "*")
     public ResponseEntity<String> postSignUpDetails(@RequestBody SignUpDetails signUpDetails) {
 
+        System.out.println("Signing up...");
         userSvc.postSignUpDetails(signUpDetails);
 
         JsonObject successful = Json.createObjectBuilder()

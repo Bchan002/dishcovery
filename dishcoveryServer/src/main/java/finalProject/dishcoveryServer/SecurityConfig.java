@@ -52,7 +52,9 @@ public class SecurityConfig {
 
              //Allow all requests for now 
              .authorizeHttpRequests(auth->auth
-                .requestMatchers("/auth/**", "/signUp/**", "/forgotPassword/**").permitAll()
+                // .requestMatchers("/auth/**", "/signUp/**", "/forgotPassword/**", "/recipe/**", "/recipe/search", "/recipe/save", 
+                // "/recipe/getSavedRecipe").permitAll()
+                .requestMatchers("/**").permitAll()
                 .anyRequest().authenticated())
 
              // Use stateless session managemnt for JWT 

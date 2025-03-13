@@ -1,0 +1,79 @@
+/* General Recipe Card Styling */
+.recipe-card {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .recipe-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  /* Title and Recipe Info */
+  .recipe-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  
+  .recipe-content h2 {
+    font-size: 2rem;
+    color: #34495e;
+  }
+  
+  .recipe-content p {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    margin-bottom: 10px;
+  }
+  
+  /* Ingredients Section */
+  .ingredients h3 {
+    font-size: 1.5rem;
+    color: #2ecc71;
+    margin-bottom: 10px;
+  }
+  
+  .mat-list-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ecf0f1;
+  }
+  
+  .ingredient-amount {
+    font-weight: bold;
+    color: #16a085;
+  }
+  
+  .ingredient-name {
+    color: #95a5a6;
+    font-style: italic;
+  }
+  
+  /* Instructions Section */
+  .instructions h3 {
+    font-size: 1.5rem;
+    color: #e67e22;
+    margin-top: 20px;
+  }
+  
+  .instructions p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #2c3e50;
+  }
+  
+  /* Add some spacing and padding */
+  .mat-card-content {
+    padding: 20px;
+  }
+  
+  
+  
