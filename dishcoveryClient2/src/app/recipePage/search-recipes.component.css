@@ -1,0 +1,125 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+  }
+  
+  /* Content wrapper */
+  .content-wrapper {
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 64px); /* Account for toolbar height */
+  }
+  
+  .search-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 35px 40px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 550px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .search-title {
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  .search-form {
+    width: 100%;
+  }
+  
+  .input-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .search-button {
+    font-size: 16px;
+    padding: 10px 24px;
+    border-radius: 4px;
+    background-color: #00a8ea; /* Set explicit background color */
+    color: white !important; /* Force white text color */
+    text-transform: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    width: 100%;
+    height: auto; /* Allow proper height */
+    line-height: normal; /* Fix line height */
+  }
+  
+  .search-button mat-icon {
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  
+  .search-button span {
+    display: inline-block; /* Ensure span is visible */
+    vertical-align: middle;
+    color: white !important; /* Force text color */
+    font-size: 16px !important; /* Force font size */
+    visibility: visible !important; /* Force visibility */
+    opacity: 1 !important; /* Force opacity */
+  }
+  
+  .search-button:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .search-button:active {
+    transform: scale(0.98);
+  }
+  
+  /* Fix for Material sidenav layout */
+  .mat-drawer-container {
+    height: 100vh;
+    background-color: #f5f7fa;
+  }
+  
+  .mat-drawer-content {
+    height: 100%;
+    transition: margin-left 0.3s ease;
+  }
+  
+  .sidenav-open .mat-drawer-content {
+    margin-left: 250px !important;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .search-container {
+      padding: 25px;
+      max-width: 100%;
+    }
+    
+    .search-title {
+      font-size: 24px;
+    }
+    
+    .content-wrapper {
+      padding: 20px;
+    }
+  }
